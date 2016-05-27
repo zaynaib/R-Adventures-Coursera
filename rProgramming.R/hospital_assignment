@@ -1,8 +1,6 @@
 ##http://resbaz.github.io/2014-r-materials/lessons/30-control-flow/
 #http://www.dummies.com/how-to/content/how-to-sort-data-frames-in-r.html
 
-#https://github.com/danielfrg/coursera-comp-for-data-analysis/blob/master/Project%202/r-code/rankall.R
-
 setwd("D:/git/R-adventures-coursera/R-Adventures-Coursera/rProgramming")
 
 #Problem 1  30 day heart attack
@@ -177,13 +175,15 @@ rankall <- function(outcome, num = "best") {
   
   #split the data by state using the split function
   #http://stackoverflow.com/questions/19327020/in-r-how-to-split-subset-a-data-frame-by-factors-in-one-column#
+  #instead of using lapply sapply can be used so you don't have to unpack the list
+  #http://stackoverflow.com/questions/3505701/r-grouping-functions-sapply-vs-lapply-vs-apply-vs-tapply-vs-by-vs-aggrega
   
   newdata<-split(newdata,newdata$host_state)
   
   #loop through the list
   #order them by rank and then by name
   
-  result<-lapply(newdata,function(mydata){
+  result<-sapply(newdata,function(mydata){
     mydata<- mydata[order(mydata[,3],mydata$host_name),]
     if(num == "best"){
       return(mydata$host_name[1])
@@ -195,7 +195,7 @@ rankall <- function(outcome, num = "best") {
       return(mydata$host_name[num])
     }
   })
-  return(data.frame(hospital<-unlist(result),state<-names(result)))
+
   
   
 }
