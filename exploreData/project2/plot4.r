@@ -36,5 +36,5 @@ plot4<-ggplot(data=coalAgg, aes(x=year, y=Emissions,color=year)) +
   geom_line() +
   geom_point()
 
-g <- ggplot(coalNEI, aes(x = factor(year), y = Emissions, fill =type)) + geom_bar(stat= "identity",position="dodge") + xlab("year") +ylab("Coal-Related PM2.5 Emissions") + ggtitle("Total Coal-Related PM2.5 Emissions")
+g <- ggplot(coalNEI, aes(x = factor(year), y = Emissions, fill =type)) + geom_bar(stat= "identity") + xlab("year") +ylab("Coal-Related PM2.5 Emissions") + ggtitle("Total Coal-Related PM2.5 Emissions")
 print(g)
