@@ -43,8 +43,6 @@ mean(ozone, na.rm=TRUE)
 #Extract the subset of rows of the data frame where Ozone values are above 31 and Temp values are above 90. 
 #What is the mean of Solar.R in this subset?
 
-(hsb6 <- hsb2.small[hsb2.small$ses == 1, ])
-
 myset<-data[data$Ozone>31 & data$Temp>90,]
 mean(myset$Solar.R, na.rm=TRUE)
 
