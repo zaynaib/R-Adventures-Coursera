@@ -18,17 +18,26 @@ iris[iris$Species=='virginica',]
 
 #Question 2
 #Continuing with the 'iris' dataset from the previous Question, what R code returns a vector of the means of the variables 'Sepal.Length', 'Sepal.Width', 'Petal.Length', and 'Petal.Width'?
+
 colMeans(iris)
+#will take the mean of all the columns including the Species column
+
 
 apply(iris, 1, mean)
+#will loop through all of the rows in the dataset
+#swe want to loop through columns
 
 apply(iris[, 1:4], 1, mean)
+#again this will take the mean of the rows but not the indiviual columns
 
 apply(iris, 2, mean)
+#will take the mean of all the columns including the Species column which is not a numeric value
 
 rowMeans(iris[, 1:4])
+#This is not generate an error but it will take the mean of t rows and not the column
 
-#apply(iris[, 1:4], 2, mean)
+apply(iris[, 1:4], 2, mean)
+#this is the correct answer. This statement will take the mean of the columns stated in the question.
 
 #Question 3
 
